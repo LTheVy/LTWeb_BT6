@@ -15,14 +15,26 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "category")
-@NamedQuery(name="Category.findAll", query="SELECT c FROM Category c")
-public class Category {
+@Table(name = "users")
+@NamedQuery(name = "User.findAll()", query = "SELECT c FROM User c")
+public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "cate_id")
 	private int id;
 	
-	@Column(name = "cate_name")
-	private String categoryName;
+	@Column(columnDefinition = "VARCHAR (255)")
+	private String username;
+	
+	@Column(columnDefinition = "VARCHAR (255)")
+	private String email;
+	
+	@Column(columnDefinition = "VARCHAR (255)")
+	private String password;
+	
+	@Column(columnDefinition = "VARCHAR (255)")
+	private String fullname;
+	
+	@Column(columnDefinition = "VARCHAR (255)")
+	private String phone;
+		
 }

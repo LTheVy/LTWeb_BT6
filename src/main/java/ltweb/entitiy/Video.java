@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,14 +14,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "category")
-@NamedQuery(name="Category.findAll", query="SELECT c FROM Category c")
-public class Category {
+@Table(name = "videos")
+public class Video {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "cate_id")
 	private int id;
 	
-	@Column(name = "cate_name")
-	private String categoryName;
+	private String title;
+	
+	private String description;
+	
+	@Column(name = "URL")
+	private String url;
 }
